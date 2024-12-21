@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 {
   options = {
     nvim-lint.enable = lib.mkEnableOption "Enable nvim-lint module";
@@ -23,5 +23,8 @@
         bash = [ "shellcheck" ];
       };
     };
+    extraPackages = with pkgs; [
+      statix
+    ];
   };
 }

@@ -1,9 +1,12 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 {
   options = {
     telescope-nvim.enable = lib.mkEnableOption "Enable telescope-nvim module";
   };
   config = lib.mkIf config.telescope-nvim.enable {
+    extraPlugins = with pkgs.vimPlugins; [
+      telescope-file-browser-nvim
+    ];
     plugins.telescope = {
       enable = true;
       extensions = {
@@ -36,6 +39,35 @@
                     return require("telescope.actions").close(...)
                   end'';
               };
+              "<C-d>" = lib.nixvim.mkRaw ''
+                function(...)
+                  local action_state = require("telescope.actions.state")
+                  local fb = require("telescope").extensions.file_browser
+                  local live_grep = require("telescope.builtin").live_grep
+                  local current_line = action_state.get_current_line()
+
+                  fb.file_browser({
+                    files = false,
+                    depth = false,
+                    attach_mappings = function()
+                      require("telescope.actions").select_default:replace(function()
+                        local entry_path = action_state.get_selected_entry().Path
+                        local dir = entry_path:is_dir() and entry_path or entry_path:parent()
+                        local relative = dir:make_relative(vim.fn.getcwd())
+                        local absolute = dir:absolute()
+
+                        live_grep({
+                          results_title = relative .. "/",
+                          cwd = absolute,
+                          default_text = current_line,
+                        })
+                      end)
+
+                      return true
+                    end,
+                  })
+                end
+              '';
             };
           };
         };

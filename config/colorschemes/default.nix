@@ -8,6 +8,7 @@
     ./base16.nix
     ./catppuccin.nix
     ./rose-pine.nix
+    ./solarized.nix
   ];
 
   options = {
@@ -15,7 +16,8 @@
   };
   config = lib.mkIf config.colorschemes.enable {
     base16.enable = lib.mkDefault false;
-    catppuccin.enable = lib.mkDefault true;
+    catppuccin.enable = lib.mkDefault false;
     rose-pine.enable = lib.mkDefault false;
+    solarized.enable = lib.mkDefault true;
   };
 }

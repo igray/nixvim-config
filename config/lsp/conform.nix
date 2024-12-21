@@ -25,16 +25,21 @@
           end
         '';
         formatters_by_ft = {
-          html = {
-            __unkeyed-1 = "prettierd";
-            __unkeyed-2 = "prettier";
-            stop_after_first = true;
-          };
           css = {
             __unkeyed-1 = "prettierd";
             __unkeyed-2 = "prettier";
             stop_after_first = true;
           };
+          dart = [ "dart_format" ];
+          elm = [ "elm_format" ];
+          fish = [ "fish_indent" ];
+          gleam = [ "gleam" ];
+          html = {
+            __unkeyed-1 = "prettierd";
+            __unkeyed-2 = "prettier";
+            stop_after_first = true;
+          };
+          java = [ "google-java-format" ];
           javascript = {
             __unkeyed-1 = "prettierd";
             __unkeyed-2 = "prettier";
@@ -45,6 +50,19 @@
             __unkeyed-2 = "prettier";
             stop_after_first = true;
           };
+          lua = [ "stylua" ];
+          nix = [ "nixfmt" ];
+          markdown = {
+            __unkeyed-1 = "prettierd";
+            __unkeyed-2 = "prettier";
+            stop_after_first = true;
+          };
+          python = [ "black" ];
+          roc = [ "roc" ];
+          ruby = [ "rubocop" ];
+          rust = [ "rustfmt" ];
+          sh = [ "shfmt" ];
+          sql = [ "sqlfluff" ];
           typescript = {
             __unkeyed-1 = "prettierd";
             __unkeyed-2 = "prettier";
@@ -55,16 +73,6 @@
             __unkeyed-2 = "prettier";
             stop_after_first = true;
           };
-          java = [ "google-java-format" ];
-          python = [ "black" ];
-          lua = [ "stylua" ];
-          nix = [ "nixfmt" ];
-          markdown = {
-            __unkeyed-1 = "prettierd";
-            __unkeyed-2 = "prettier";
-            stop_after_first = true;
-          };
-          rust = [ "rustfmt" ];
         };
       };
     };

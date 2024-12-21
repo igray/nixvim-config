@@ -5,21 +5,24 @@
   };
   config = lib.mkIf config.cmp.enable {
     plugins = {
-      cmp-nvim-lsp = {
-        enable = true;
-      }; # lsp
       cmp-buffer = {
+        enable = true;
+      };
+      cmp-cmdline = {
+        enable = true;
+      }; # autocomplete for cmdline
+      cmp-emoji = {
+        enable = true;
+      };
+      cmp_luasnip = {
+        enable = true;
+      }; # snippets
+      cmp-nvim-lsp = {
         enable = true;
       };
       cmp-path = {
         enable = true;
       }; # file system paths
-      cmp-cmdline = {
-        enable = true;
-      }; # autocomplete for cmdline
-      cmp_luasnip = {
-        enable = true;
-      }; # snippets
       copilot-cmp = {
         enable = true;
       }; # copilot suggestions

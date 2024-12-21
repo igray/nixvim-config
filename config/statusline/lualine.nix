@@ -31,7 +31,7 @@
           lualine_c = [ "filename" ];
           lualine_x = [ "filetype" ];
           lualine_y = [ "progress" ];
-          lualine_z = [ ''" " .. os.date("%R")'' ];
+          lualine_z = [];
         };
       };
     };
@@ -107,6 +107,13 @@
        			return package.loaded["noice"] and require("noice").api.status.mode.has() or ""
        		end
         end
+
+        local custom_solarized = require'lualine.themes.solarized'
+        custom_solarized.normal.b.bg = custom_solarized.normal.c.bg
+        custom_solarized.normal.b.fg = custom_solarized.normal.c.fg
+        require('lualine').setup {
+          options = { theme  = custom_solarized },
+        }
     '';
   };
 }

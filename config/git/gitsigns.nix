@@ -8,9 +8,12 @@
       enable = true;
       settings = {
         trouble = true;
-        current_line_blame = false;
+        current_line_blame = true;
       };
     };
+    extraConfigLua = ''
+      vim.api.nvim_set_hl(0, 'GitsignsCurrentLineBlame', { link = 'VertSplit' })
+    '';
     keymaps = [
       {
         mode = [

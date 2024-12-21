@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, pkgs, config, ... }:
 {
   options = {
     lsp-nvim.enable = lib.mkEnableOption "Enable lsp-nvim module";
@@ -12,7 +12,35 @@
         enable = true;
         capabilities = "offsetEncoding = 'utf-16'";
         servers = {
+          bashls = {
+            enable = true;
+          };
           clangd = {
+            enable = true;
+          };
+          cssls = {
+            enable = true;
+          };
+          dartls = {
+            enable = true;
+          };
+          dockerls = {
+            enable = true;
+          };
+          elmls = {
+            enable = true;
+          };
+          fish_lsp = {
+            enable = true;
+            package = pkgs.fish-lsp;
+          };
+          gleam = {
+            enable = true;
+          };
+          html = {
+            enable = true;
+          };
+          jsonls = {
             enable = true;
           };
           lua_ls = {
@@ -87,10 +115,15 @@
           pyright = {
             enable = true;
           };
+          roc_ls = {
+            enable = false;
+          };
+          ruby_lsp = {
+            enable = true;
+          };
           ruff = {
             enable = true;
           };
-
           rust_analyzer = {
             enable = true;
             installCargo = true;
@@ -110,6 +143,9 @@
                 enable = true;
               };
             };
+          };
+          yamlls = {
+            enable = false;
           };
         };
         keymaps = {
@@ -206,10 +242,15 @@
 
           vim.diagnostic.config({
       			float = { border = "rounded" },
-      			virtual_text = {
-      				prefix = "",
-      			},
-            signs = true,
+      			virtual_text = false,
+            signs = {
+              text = {
+                [vim.diagnostic.severity.ERROR] = " ",
+                [vim.diagnostic.severity.WARN] = " ",
+                [vim.diagnostic.severity.HINT] = " ",
+                [vim.diagnostic.severity.INFO] = " ",
+              },
+            },
             underline = true,
             update_in_insert = true,
       		})
