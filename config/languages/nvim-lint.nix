@@ -24,6 +24,7 @@
       };
     };
     extraPackages = with pkgs; [
+      eslint_d
       statix
     ];
   };
