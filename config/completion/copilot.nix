@@ -48,5 +48,8 @@
       copilotNodeCommand = "node"; # Node.js version must be > 18.x
       serverOptsOverrides = { };
     };
+    plugins.copilot-chat = {
+      enable = true;
+    };
   };
 }
