@@ -6,6 +6,24 @@
   config = lib.mkIf config.telescope-nvim.enable {
     extraPlugins = with pkgs.vimPlugins; [
       telescope-file-browser-nvim
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "telescope-media.nvim";
+        src = pkgs.fetchFromGitHub {
+          owner = "dharmx";
+          repo = "telescope-media.nvim";
+          rev = "aa67b00b3a0811c10c9c545127020d0fed04fc7e";
+          hash = "sha256-8nqw/Ce87jQiwLfCpaT5/8mwZE6259fLvX7bWhzBsFk=";
+        };
+      })
+    ];
+    extraConfigLua = ''
+      require("telescope").load_extension("media")
+    '';
+    extraPackages = with pkgs; [
+      chafa
+      fontforge
+      imagemagick
+      poppler_utils
     ];
     plugins.telescope = {
       enable = true;
@@ -17,27 +35,6 @@
             override_generic_sorter = true;
             override_file_sorter = true;
             case_mode = "smart_case";
-          };
-        };
-        media-files = {
-          enable = true;
-          dependencies = {
-            chafa.enable = true;
-            fontpreview.enable = true;
-            imageMagick.enable = true;
-            pdftoppm.enable = true;
-          };
-          settings = {
-            filetypes = [
-              "gif"
-              "jpeg"
-              "jpg"
-              "otf"
-              "pdf"
-              "png"
-              "svg"
-              "ttf"
-            ];
           };
         };
         ui-select = {
@@ -99,6 +96,11 @@
           # find_files = {
           #   theme = "ivy";
           # };
+        };
+        extensions = {
+          media = {
+            backend = "chafa";
+          };
         };
       };
       keymaps = {
