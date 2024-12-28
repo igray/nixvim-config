@@ -8,6 +8,7 @@
     ./alpha.nix
     ./barbecue.nix
     ./dressing-nvim.nix
+    ./image-nvim.nix
     ./indent-blankline.nix
     ./noice.nix
     ./nui.nix
@@ -22,6 +23,7 @@
     alpha.enable = lib.mkDefault true;
     barbecue.enable = lib.mkDefault true;
     dressing-nvim.enable = lib.mkDefault true;
+    image-nvim.enable = lib.mkDefault true;
     indent-blankline.enable = lib.mkDefault true;
     noice.enable = lib.mkDefault false;
     notify.enable = lib.mkDefault true;
