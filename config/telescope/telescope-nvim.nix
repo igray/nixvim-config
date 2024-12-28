@@ -20,7 +20,6 @@
       require("telescope").load_extension("media")
     '';
     extraPackages = with pkgs; [
-      chafa
       fontforge
       imagemagick
       poppler_utils
@@ -99,7 +98,7 @@
         };
         extensions = {
           media = {
-            backend = "chafa";
+            backend = "viu";
           };
         };
       };
