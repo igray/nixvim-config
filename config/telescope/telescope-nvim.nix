@@ -19,6 +19,27 @@
             case_mode = "smart_case";
           };
         };
+        media-files = {
+          enable = true;
+          dependencies = {
+            chafa.enable = true;
+            fontpreview.enable = true;
+            imageMagick.enable = true;
+            pdftoppm.enable = true;
+          };
+          settings = {
+            filetypes = [
+              "gif"
+              "jpeg"
+              "jpg"
+              "otf"
+              "pdf"
+              "png"
+              "svg"
+              "ttf"
+            ];
+          };
+        };
         ui-select = {
           enable = true;
           settings = {
