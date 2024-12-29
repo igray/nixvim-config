@@ -51,5 +51,8 @@
     plugins.copilot-chat = {
       enable = true;
     };
+    extraLuaPackages = p: [
+      p.tiktoken_core
+    ];
   };
 }
