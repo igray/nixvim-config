@@ -1,9 +1,17 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   options = {
     telescope-nvim.enable = lib.mkEnableOption "Enable telescope-nvim module";
   };
   config = lib.mkIf config.telescope-nvim.enable {
+    extraPlugins = with pkgs.vimPlugins; [
+      telescope-file-browser-nvim
+    ];
     plugins.telescope = {
       enable = true;
       extensions = {
