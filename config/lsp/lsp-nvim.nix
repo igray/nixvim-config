@@ -1,4 +1,9 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   options = {
     lsp-nvim.enable = lib.mkEnableOption "Enable lsp-nvim module";
@@ -120,6 +125,7 @@
           };
           ruby_lsp = {
             enable = true;
+            package = null;
           };
           ruff = {
             enable = true;
