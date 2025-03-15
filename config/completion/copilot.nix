@@ -52,6 +52,10 @@
     };
     plugins.copilot-chat = {
       enable = true;
+      settings = {
+        model = "claude-3.7-sonnet";
+
+      };
     };
     extraLuaPackages = p: [
       p.tiktoken_core
