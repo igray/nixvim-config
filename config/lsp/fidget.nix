@@ -69,7 +69,7 @@
           poll_rate = 10; # How frequently to update and render notifications
           filter = "info"; # “off”, “error”, “warn”, “info”, “debug”, “trace”
           history_size = 128; # Number of removed messages to retain in history
-          override_vim_notify = true;
+          override_vim_notify = false;
           redirect = lib.nixvim.mkRaw ''
             function(msg, level, opts)
               if opts and opts.on_open then
