@@ -14,6 +14,7 @@
     ./noice.nix
     ./nui.nix
     ./notify.nix
+    ./utility.nix
     ./web-devicons.nix
   ];
 
@@ -30,6 +31,7 @@
     noice.enable = lib.mkDefault false;
     notify.enable = lib.mkDefault false;
     nui.enable = lib.mkDefault true;
+    utility.enable = lib.mkDefault true;
     web-devicons.enable = lib.mkDefault true;
   };
 }
