@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 {
   options = {
     nvim-lint.enable = lib.mkEnableOption "Enable nvim-lint module";
@@ -7,25 +12,33 @@
     plugins.lint = {
       enable = true;
       lintersByFt = {
+        bash = [ "shellcheck" ];
         c = [ "cpplint" ];
         cpp = [ "cpplint" ];
+        eruby = [ "erb_lint" ];
         go = [ "golangci-lint" ];
-        nix = [ "statix" ];
-        lua = [ "selene" ];
-        python = [ "flake8" ];
+        haskell = [ "hlint" ];
+        java = [ "checkstyle" ];
         javascript = [ "eslint_d" ];
         javascriptreact = [ "eslint_d" ];
+        json = [ "jsonlint" ];
+        lua = [ "selene" ];
+        nix = [ "statix" ];
+        python = [ "flake8" ];
         typescript = [ "eslint_d" ];
         typescriptreact = [ "eslint_d" ];
-        json = [ "jsonlint" ];
-        java = [ "checkstyle" ];
-        haskell = [ "hlint" ];
-        bash = [ "shellcheck" ];
       };
     };
     extraPackages = with pkgs; [
       eslint_d
       statix
     ];
+    extraConfigLua = ''
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        callback = function()
+          require("lint").try_lint()
+        end,
+      })
+    '';
   };
 }
