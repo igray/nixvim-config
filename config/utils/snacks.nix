@@ -546,6 +546,15 @@
           silent = true;
         };
       }
+      {
+        mode = "n";
+        key = "<leader>t";
+        action = ":lua Snacks.terminal.toggle()<CR>";
+        options = {
+          desc = "Terminal";
+          silent = true;
+        };
+      }
     ];
   };
 }

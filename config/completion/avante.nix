@@ -9,9 +9,6 @@
     avante.enable = lib.mkEnableOption "Enable avante module";
   };
   config = lib.mkIf config.avante.enable {
-    extraPackages = with pkgs; [
-      curl
-    ];
     extraPlugins = with pkgs.vimPlugins; [
       img-clip-nvim
     ];
@@ -19,7 +16,8 @@
       enable = true;
       package = pkgs.vimPlugins.avante-nvim;
       settings = {
-        claude.model = "claude-3-7-sonnet-20250219";
+        provider = "copilot";
+        copilot.model = "claude-3-7-sonnet-20250219";
         behaviour = {
           auto_suggestions = false;
         };
