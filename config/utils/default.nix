@@ -30,6 +30,7 @@
     ./wakatime.nix
     ./which-key.nix
     ./wilder.nix
+    ./zk.nix
   ];
 
   options = {
@@ -61,5 +62,6 @@
     wakatime.enable = lib.mkDefault false;
     which-key.enable = lib.mkDefault true;
     wilder.enable = lib.mkDefault false;
+    zk.enable = lib.mkDefault true;
   };
 }
