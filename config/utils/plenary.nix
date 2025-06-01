@@ -12,5 +12,9 @@
     extraPlugins = with pkgs.vimPlugins; [
       plenary-nvim
     ];
+    extraConfigLua = ''
+      -- Force plenary to use system curl
+      vim.g.plenary_curl_bin_path = "${pkgs.curl}/bin/curl"
+    '';
   };
 }
