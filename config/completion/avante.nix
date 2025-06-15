@@ -16,8 +16,11 @@
       enable = true;
       package = pkgs.vimPlugins.avante-nvim;
       settings = {
-        provider = "copilot";
-        copilot.model = "claude-3-7-sonnet-20250219";
+        providers = {
+          copilot = {
+            model = "claude-sonnet-4";
+          };
+        };
         behaviour = {
           auto_suggestions = false;
         };
