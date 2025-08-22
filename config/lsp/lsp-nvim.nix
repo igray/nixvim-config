@@ -126,6 +126,14 @@
           ruby_lsp = {
             enable = true;
             package = null;
+            extraOptions = {
+              init_options = {
+                linters = [
+                  "rubocop"
+                  "reek"
+                ];
+              };
+            };
           };
           ruff = {
             enable = true;
