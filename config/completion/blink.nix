@@ -22,7 +22,6 @@
           ];
           "<C-e>" = [ "hide" ];
           "<C-y>" = [ "select_and_accept" ];
-
           "<Tab>" = [
             "snippet_forward"
             "select_next"
@@ -94,14 +93,12 @@
         };
 
         sources = {
-          # LazyVim default sources
           default = [
             "lsp"
             "path"
             "snippets"
             "buffer"
             "emoji"
-            "copilot"
           ];
 
           # Per-filetype sources
@@ -147,26 +144,8 @@
               module = "blink-emoji";
               name = "Emoji";
               score_offset = 15;
-              # Optional configurations
               opts = {
                 insert = true;
-              };
-            };
-            copilot = {
-              async = true;
-              module = "blink-copilot";
-              name = "copilot";
-              score_offset = 100;
-              # Optional configurations
-              opts = {
-                max_completions = 3;
-                max_attempts = 4;
-                kind = "Copilot";
-                debounce = 750;
-                auto_refresh = {
-                  backward = true;
-                  forward = true;
-                };
               };
             };
           };
@@ -180,6 +159,7 @@
         };
       };
     };
+    plugins.blink-emoji.enable = true;
 
     # Add friendly-snippets
     extraPlugins = [

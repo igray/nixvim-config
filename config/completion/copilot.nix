@@ -7,29 +7,16 @@
     plugins.copilot-lua = {
       enable = true;
       settings = {
-        panel = {
-          enabled = false;
-          autoRefresh = true;
-          keymap = {
-            jumpPrev = "[[";
-            jumpNext = "]]";
-            accept = "<CR>";
-            refresh = "gr";
-            open = "<M-CR>";
-          };
-          layout = {
-            position = "bottom"; # | top | left | right
-            ratio = 0.4;
-          };
-        };
+        # Disable panel, but keep suggestions enabled for inline completions
+        panel.enabled = false;
         suggestion = {
-          enabled = false;
-          autoTrigger = true;
+          enabled = true;
+          auto_trigger = true;
           debounce = 75;
           keymap = {
-            accept = "<M-l>";
-            acceptWord = false;
-            acceptLine = false;
+            accept = "<Tab>";
+            accept_word = false;
+            accept_line = false;
             next = "<M-]>";
             prev = "<M-[>";
             dismiss = "<C-]>";
@@ -47,8 +34,8 @@
           cvs = false;
           "." = false;
         };
-        copilotNodeCommand = "node"; # Node.js version must be > 18.x
-        serverOptsOverrides = { };
+        copilot_node_command = "node"; # Node.js version must be > 18.x
+        server_opts_override = { };
       };
     };
   };
