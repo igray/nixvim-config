@@ -70,8 +70,8 @@
       # Enable the sign column to prevent the screen from jumping
       signcolumn = "yes";
 
-      # Enable cursor line highlight
-      cursorline = false; # Highlight the line where the cursor is located
+      # Enable cursor line highlight (LazyVim default)
+      cursorline = true; # Highlight the line where the cursor is located
 
       # Set fold settings
       # These options were reccommended by nvim-ufo
@@ -110,8 +110,8 @@
       list = true; # Show invisible characters (tabs, eol, ...)
       listchars = "eol:↲,tab:|->,lead:·,space: ,trail:•,extends:→,precedes:←,nbsp:␣";
 
-      # More space in the neovim command line for displaying messages
-      cmdheight = 2;
+      # More space in the neovim command line for displaying messages (LazyVim uses 1)
+      cmdheight = 1;
 
       # We don't need to see things like INSERT anymore
       showmode = false;

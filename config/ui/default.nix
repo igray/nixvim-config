@@ -21,7 +21,7 @@
     dressing-nvim.enable = lib.mkDefault false;
     grug-far.enable = lib.mkDefault true;
     image-nvim.enable = lib.mkDefault false;
-    noice.enable = lib.mkDefault false;
+    noice.enable = lib.mkDefault true;  # LazyVim core plugin
     nui.enable = lib.mkDefault true;
     utility.enable = lib.mkDefault true;
     web-devicons.enable = lib.mkDefault true;
