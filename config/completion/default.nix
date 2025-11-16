@@ -18,7 +18,7 @@
   config = lib.mkIf config.completion.enable {
     # Use blink.cmp instead of nvim-cmp (LazyVim blink extra)
     blink.enable = lib.mkDefault true;
-    claudecode.enable = lib.mkDefault true;
+    claudecode.enable = lib.mkDefault false;
     cmp.enable = lib.mkDefault false;
     copilot.enable = lib.mkDefault true;
     lspkind.enable = lib.mkDefault true;
