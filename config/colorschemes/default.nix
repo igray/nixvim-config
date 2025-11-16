@@ -9,6 +9,7 @@
     ./catppuccin.nix
     ./rose-pine.nix
     ./solarized.nix
+    ./tokyonight.nix
   ];
 
   options = {
@@ -19,5 +20,6 @@
     catppuccin.enable = lib.mkDefault false;
     rose-pine.enable = lib.mkDefault false;
     solarized.enable = lib.mkDefault true;
+    tokyonight.enable = lib.mkDefault false;
   };
 }

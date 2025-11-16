@@ -7,6 +7,7 @@
   imports = [
     ./conform.nix
     ./fidget.nix
+    ./lazydev.nix
     ./lsp-nvim.nix
     ./lspsaga.nix
     ./trouble.nix
@@ -15,9 +16,10 @@
   options = {
     lsp.enable = lib.mkEnableOption "Enable lsp module";
   };
-  config = lib.mkIf config.dap.enable {
+  config = lib.mkIf config.lsp.enable {
     conform.enable = lib.mkDefault true;
     fidget.enable = lib.mkDefault true;
+    lazydev.enable = lib.mkDefault true;
     lsp-nvim.enable = lib.mkDefault true;
     lspsaga.enable = lib.mkDefault false;
     trouble.enable = lib.mkDefault true;

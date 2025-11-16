@@ -6,6 +6,7 @@
 {
   imports = [
     ./clipboard.nix
+    ./flash.nix
     ./mini.nix
     ./nvterm.nix
     ./persistence.nix
@@ -22,6 +23,7 @@
   };
   config = lib.mkIf config.utils.enable {
     clipboard.enable = lib.mkDefault true;
+    flash.enable = lib.mkDefault true;
     mini.enable = lib.mkDefault true;
     nvterm.enable = lib.mkDefault false;
     persistence.enable = lib.mkDefault true;
