@@ -19,6 +19,15 @@
             delay = 100;
           };
         };
+        # LazyVim core - Enhanced text objects (aa/ia for arguments, function calls, etc.)
+        ai = {
+          n_lines = 500;
+          custom_textobjects = null;
+        };
+        # LazyVim core - Auto-pairing brackets, quotes, etc.
+        pairs = { };
+        # LazyVim core - Surround text objects with brackets, quotes, etc.
+        surround = { };
       };
     };
   };
