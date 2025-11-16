@@ -36,9 +36,10 @@
           };
         };
         filetypes = {
+          # LazyVim enables markdown and help
           yaml = false;
-          markdown = false;
-          help = false;
+          markdown = true;
+          help = true;
           gitcommit = false;
           gitrebase = false;
           hgcommit = false;
@@ -54,9 +55,61 @@
       enable = true;
       settings = {
         model = "gemini-2.5-pro";
-
+        # LazyVim configuration
+        auto_insert_mode = true;
+        show_help = true;
+        question_header = "## User ";
+        answer_header = "## Copilot ";
+        window = {
+          layout = "float";
+          width = 0.8;
+          height = 0.6;
+        };
       };
     };
+
+    # LazyVim Copilot Chat keymaps
+    keymaps = [
+      {
+        mode = [ "n" "v" ];
+        key = "<leader>aa";
+        action = "<cmd>CopilotChatToggle<cr>";
+        options = {
+          desc = "Toggle Copilot Chat";
+        };
+      }
+      {
+        mode = [ "n" "v" ];
+        key = "<leader>ax";
+        action = "<cmd>CopilotChatReset<cr>";
+        options = {
+          desc = "Clear Copilot Chat";
+        };
+      }
+      {
+        mode = [ "n" "v" ];
+        key = "<leader>aq";
+        action = ''
+          function()
+            local input = vim.fn.input("Quick Chat: ")
+            if input ~= "" then
+              require("CopilotChat").ask(input)
+            end
+          end
+        '';
+        options = {
+          desc = "Quick Chat";
+        };
+      }
+      {
+        mode = [ "n" "v" ];
+        key = "<leader>ap";
+        action = "<cmd>CopilotChatCommitStaged<cr>";
+        options = {
+          desc = "Generate commit message";
+        };
+      }
+    ];
     extraLuaPackages = p: [
       p.tiktoken_core
     ];
