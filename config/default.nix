@@ -5,7 +5,6 @@
     ./bufferlines
     ./colorschemes
     ./completion
-    ./dap
     ./filetrees
     ./git
     ./keys.nix
@@ -24,7 +23,6 @@
   bufferlines.enable = lib.mkDefault true;
   colorschemes.enable = lib.mkDefault true;
   completion.enable = lib.mkDefault true;
-  dap.enable = lib.mkDefault true;
   filetrees.enable = lib.mkDefault false;
   git.enable = lib.mkDefault true;
   keys.enable = true;
