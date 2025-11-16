@@ -13,104 +13,97 @@
           separator = ""; # ➜
         };
         spec = [
-          # Harpoon Configs
+          # LazyVim which-key groups
           {
-            __unkeyed-1 = "<leader>h";
-            mode = "n";
-            group = "+harpoon";
-            icon = "󱡁";
+            __unkeyed-1 = "<leader>a";
+            mode = [ "n" "v" ];
+            group = "+ai";
+            icon = "󰧑";
           }
           {
-            __unkeyed-1 = "<leader>ha";
+            __unkeyed-1 = "<leader>b";
             mode = "n";
-            group = "Add file to Harpoon";
+            group = "+buffer";
+            icon = "󰓩";
           }
-          {
-            __unkeyed-1 = "<leader>hj";
-            mode = "n";
-            group = "Harpoon File 1";
-          }
-          {
-            __unkeyed-1 = "<leader>hk";
-            mode = "n";
-            group = "Harpoon File 2";
-          }
-          {
-            __unkeyed-1 = "<leader>hl";
-            mode = "n";
-            group = "Harpoon File 3";
-          }
-          {
-            __unkeyed-1 = "<leader>hm";
-            mode = "n";
-            group = "Harpoon File 4";
-          }
-
-          # General Mappings
           {
             __unkeyed-1 = "<leader>c";
-            mode = [
-              "n"
-              "v"
-            ];
+            mode = [ "n" "v" ];
             group = "+code";
-          }
-          {
-            __unkeyed-1 = "<leader>d";
-            mode = [
-              "n"
-              "v"
-            ];
-            group = "+debug";
+            icon = "󰅩";
           }
           {
             __unkeyed-1 = "<leader>f";
             mode = "n";
-            group = "+find/file";
+            group = "+file/find";
+            icon = "󰈞";
           }
-
           {
             __unkeyed-1 = "<leader>g";
-            mode = [
-              "n"
-              "v"
-            ];
+            mode = [ "n" "v" ];
             group = "+git";
+            icon = "";
           }
-
           {
             __unkeyed-1 = "<leader>q";
             mode = "n";
             group = "+quit/session";
+            icon = "󰗼";
           }
-
           {
             __unkeyed-1 = "<leader>s";
-            mode = "n";
+            mode = [ "n" "v" ];
             group = "+search";
+            icon = "";
           }
           {
-            __unkeyed-1 = "<leader><Tab>";
+            __unkeyed-1 = "<leader><tab>";
             mode = "n";
-            group = "+tab";
+            group = "+tabs";
+            icon = "󰓩";
           }
-
-          {
-            __unkeyed-1 = "<leader>t";
-            mode = "n";
-            group = "+test";
-          }
-
           {
             __unkeyed-1 = "<leader>u";
             mode = "n";
             group = "+ui";
+            icon = "󰙵";
           }
-
           {
             __unkeyed-1 = "<leader>w";
             mode = "n";
             group = "+windows";
+            icon = "";
+          }
+          {
+            __unkeyed-1 = "<leader>x";
+            mode = "n";
+            group = "+diagnostics/quickfix";
+            icon = "󱖫";
+          }
+          {
+            __unkeyed-1 = "[";
+            mode = "n";
+            group = "+prev";
+          }
+          {
+            __unkeyed-1 = "]";
+            mode = "n";
+            group = "+next";
+          }
+          {
+            __unkeyed-1 = "g";
+            mode = [ "n" "v" ];
+            group = "+goto";
+          }
+          {
+            __unkeyed-1 = "gs";
+            mode = [ "n" "v" ];
+            group = "+surround";
+          }
+          {
+            __unkeyed-1 = "z";
+            mode = "n";
+            group = "+fold";
           }
         ];
         win = {
