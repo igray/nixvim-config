@@ -89,6 +89,25 @@
           debounce = 200;
           enabled = true;
         };
+        # New Snacks modules for LazyVim alignment
+        bufdelete = {
+          enabled = true;
+        };
+        dim = {
+          enabled = true;
+        };
+        scroll = {
+          enabled = true;
+          animate = {
+            duration = {
+              step = 15;
+              total = 250;
+            };
+          };
+        };
+        toggle = {
+          enabled = true;
+        };
       };
     };
 
