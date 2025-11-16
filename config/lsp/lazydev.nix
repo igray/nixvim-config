@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 {
   options = {
     lazydev.enable = lib.mkEnableOption "Enable lazydev.nvim for Neovim Lua development";
@@ -20,15 +20,15 @@
     # Add luvit types for vim.uv (LazyVim pattern)
     extraPlugins = [
       {
-        plugin = (pkgs: pkgs.vimUtils.buildVimPlugin {
+        plugin = pkgs.vimUtils.buildVimPlugin {
           name = "luvit-meta";
           src = pkgs.fetchFromGitHub {
             owner = "Bilal2453";
             repo = "luvit-meta";
             rev = "ce76f6f6cdc9201523a5875a4471dcfe0186eb60";
-            sha256 = "sha256-jdJML6NbwqPPqJ8oPb1iChmKZA3PsYVqPKEALj7fCqo=";
+            sha256 = "sha256-zAAptV/oLuLAAsa2zSB/6fxlElk4+jNZd/cPr9oxFig=";
           };
-        });
+        };
         optional = true;
       }
     ];

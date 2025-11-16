@@ -7,9 +7,11 @@
 
     plugins.lspkind = {
       enable = true;
+      # Disable cmp integration since we're using blink.cmp
+      cmp.enable = false;
       settings = {
         symbolMap = {
-          Copilot = "";
+          Copilot = "";
         };
         maxwidth = 50;
         ellipsis_char = "...";

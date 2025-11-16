@@ -88,9 +88,9 @@
         };
         prompt = {
           enabled = true;
-          prefix = {
-            { "⚡" "FlashPromptIcon" };
-          };
+          prefix = [
+            [ "⚡" "FlashPromptIcon" ]
+          ];
           win_config = {
             relative = "editor";
             width = 1;
