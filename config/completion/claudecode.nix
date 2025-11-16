@@ -1,33 +1,19 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, ... }:
 {
   options = {
     claudecode.enable = lib.mkEnableOption "Enable claudecode.nvim for Claude Code integration";
   };
   config = lib.mkIf config.claudecode.enable {
-    # claudecode.nvim requires the extraPlugins approach as it's not in nixpkgs yet
-    extraPlugins = [
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "claudecode.nvim";
-        src = pkgs.fetchFromGitHub {
-          owner = "anthropics";
-          repo = "claudecode.nvim";
-          rev = "main";  # Pin to a specific commit in production
-          sha256 = lib.fakeSha256;  # Replace with actual sha256 after first build
-        };
-      })
-    ];
-
-    extraConfigLua = ''
-      -- claudecode.nvim LazyVim configuration
-      require('claudecode').setup({
-        -- LazyVim defaults
-        provider = "anthropic",
-        auto_start = false,
-        show_diff = true,
-        keymap_accept = "<leader>aa",
-        keymap_reject = "<leader>ad",
-      })
-    '';
+    # Use nixvim's built-in claude-code module
+    plugins.claude-code = {
+      enable = true;
+      # LazyVim configuration
+      settings = {
+        provider = "anthropic";
+        auto_start = false;
+        show_diff = true;
+      };
+    };
 
     # LazyVim Claudecode keymaps
     keymaps = [
