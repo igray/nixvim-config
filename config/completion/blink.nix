@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   options = {
     blink.enable = lib.mkEnableOption "Enable blink.cmp completion engine";
@@ -10,7 +15,11 @@
         # LazyVim blink.cmp configuration
         keymap = {
           preset = "default";
-          "<C-space>" = [ "show" "show_documentation" "hide_documentation" ];
+          "<C-space>" = [
+            "show"
+            "show_documentation"
+            "hide_documentation"
+          ];
           "<C-e>" = [ "hide" ];
           "<C-y>" = [ "select_and_accept" ];
 
@@ -25,11 +34,23 @@
             "fallback"
           ];
 
-          "<C-j>" = [ "select_next" "fallback" ];
-          "<C-k>" = [ "select_prev" "fallback" ];
+          "<C-j>" = [
+            "select_next"
+            "fallback"
+          ];
+          "<C-k>" = [
+            "select_prev"
+            "fallback"
+          ];
 
-          "<C-b>" = [ "scroll_documentation_up" "fallback" ];
-          "<C-f>" = [ "scroll_documentation_down" "fallback" ];
+          "<C-b>" = [
+            "scroll_documentation_up"
+            "fallback"
+          ];
+          "<C-f>" = [
+            "scroll_documentation_down"
+            "fallback"
+          ];
         };
 
         appearance = {
@@ -50,7 +71,10 @@
             draw = {
               columns = [
                 [ "kind_icon" ]
-                [ "label" "label_description" ]
+                [
+                  "label"
+                  "label_description"
+                ]
                 [ "kind" ]
               ];
             };
@@ -71,7 +95,14 @@
 
         sources = {
           # LazyVim default sources
-          default = [ "lsp" "path" "snippets" "buffer" ];
+          default = [
+            "lsp"
+            "path"
+            "snippets"
+            "buffer"
+            "emoji"
+            "copilot"
+          ];
 
           # Per-filetype sources
           providers = {
@@ -111,6 +142,32 @@
               module = "blink.cmp.sources.buffer";
               enabled = true;
               min_keyword_length = 5;
+            };
+            emoji = {
+              module = "blink-emoji";
+              name = "Emoji";
+              score_offset = 15;
+              # Optional configurations
+              opts = {
+                insert = true;
+              };
+            };
+            copilot = {
+              async = true;
+              module = "blink-copilot";
+              name = "copilot";
+              score_offset = 100;
+              # Optional configurations
+              opts = {
+                max_completions = 3;
+                max_attempts = 4;
+                kind = "Copilot";
+                debounce = 750;
+                auto_refresh = {
+                  backward = true;
+                  forward = true;
+                };
+              };
             };
           };
         };
