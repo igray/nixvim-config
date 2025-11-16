@@ -14,6 +14,9 @@
         bigfile = {
           enabled = true;
         };
+        bufdelete = {
+          enabled = true;
+        };
         dashboard = {
           enabled = true;
           sections = [
@@ -43,10 +46,16 @@
             }
           ];
         };
+        dim = {
+          enabled = true;
+        };
         explorer = {
           enabled = true;
           replace_netrw = true;
 
+        };
+        gh = {
+          enabled = true;
         };
         gitbrowser = {
           enabled = true;
@@ -69,6 +78,12 @@
         };
         picker = {
           enabled = true;
+          sources = {
+            gh_issue = {
+            };
+            gh_pr = {
+            };
+          };
         };
         quickfile = {
           enabled = true;
@@ -82,20 +97,6 @@
         statuscolumn = {
           enabled = true;
         };
-        terminal = {
-          enabled = true;
-        };
-        words = {
-          debounce = 200;
-          enabled = true;
-        };
-        # New Snacks modules for LazyVim alignment
-        bufdelete = {
-          enabled = true;
-        };
-        dim = {
-          enabled = true;
-        };
         scroll = {
           enabled = true;
           animate = {
@@ -105,7 +106,14 @@
             };
           };
         };
+        terminal = {
+          enabled = true;
+        };
         toggle = {
+          enabled = true;
+        };
+        words = {
+          debounce = 200;
           enabled = true;
         };
       };
@@ -544,6 +552,42 @@
         action = ":lua Snacks.lazygit()<CR>";
         options = {
           desc = "LazyGit (root dir)";
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>gi";
+        action = ":lua Snacks.picker.gh_issue()<CR>";
+        options = {
+          desc = "GitHub Issues (open)";
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>gI";
+        action = ":lua Snacks.picker.gh_issue({ state = \"all\" })<CR>";
+        options = {
+          desc = "GitHub Issues (all)";
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>gp";
+        action = ":lua Snacks.picker.gh_pr()<CR>";
+        options = {
+          desc = "GitHub Pull Requests (open)";
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>gP";
+        action = ":lua Snacks.picker.gh_pr({ state = \"all\" })<CR>";
+        options = {
+          desc = "GitHub Pull Requests (all)";
           silent = true;
         };
       }
