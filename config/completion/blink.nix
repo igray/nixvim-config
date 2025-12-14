@@ -21,10 +21,9 @@
             "hide_documentation"
           ];
           "<C-e>" = [ "hide" ];
-          "<C-y>" = [ "select_and_accept" ];
           "<Tab>" = [
+            "select_and_accept"
             "snippet_forward"
-            "select_next"
             "fallback"
           ];
           "<S-Tab>" = [
