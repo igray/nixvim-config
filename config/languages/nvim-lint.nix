@@ -22,6 +22,7 @@
         javascript = [ "eslint_d" ];
         javascriptreact = [ "eslint_d" ];
         json = [ "jsonlint" ];
+        kotlin = [ "ktlint" ];
         lua = [ "selene" ];
         nix = [ "statix" ];
         python = [ "flake8" ];
