@@ -15,12 +15,13 @@
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
           bash
           c
-          html
           css
           dockerfile
           elm
+          embedded_template
           gleam
           html
+          java
           javascript
           jsdoc
           json
@@ -28,21 +29,20 @@
           lua
           luadoc
           luap
-          nix
-          rust
-          java
           markdown
           markdown_inline
+          nix
           python
           query
           regex
           ruby
+          rust
           scss
+          toml
           tsx
           typescript
           vim
           vimdoc
-          toml
           yaml
         ];
         highlight.enable = true;
