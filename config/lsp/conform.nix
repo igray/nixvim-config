@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   options = {
     conform.enable = lib.mkEnableOption "Enable conform module";
@@ -78,7 +83,7 @@
     };
     extraPackages = with pkgs; [
       black
-      nixfmt-rfc-style
+      nixfmt
       prettierd
       rustfmt
       shfmt
